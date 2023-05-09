@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* notification */
-.notification {
-	padding-top: 0rem;
-	padding-bottom: 0rem;
-	flex: auto;
-	font-size: 16px;
-}
-
 blockquote {
 	background-color: #f6f8f9;
 	border-end-end-radius: 10px;
