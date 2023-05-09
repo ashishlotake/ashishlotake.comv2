@@ -1,0 +1,55 @@
+---
+import { Picture } from "@astrojs/image/components"
+
+const { blogPostEntry } = Astro.props
+const { index } = Astro.props
+---
+
+<>
+	<a href={`/blog/${blogPostEntry.slug}`}>
+		<div
+			class="h-full p-4 gap-3 group grid items-center border-2 rounded-xl overflow-hidden md:hover:shadow-2xl duration-300 transition-all"
+		>
+			<div class="overflow-hidden rounded-xl">
+				<Picture
+					src={blogPostEntry.data.image.src}
+					alt={blogPostEntry.data.image.alt}
+					sizes="(max-width: 800px) 100vw, 800px"
+					widths={[200, 400, 800]}
+					aspectRatio="16:9"
+					background="#ffffff"
+					fit="cover"
+					position="center"
+					loading={index <= 2 ? "eager" : "lazy"}
+					decoding={index <= 2 ? "sync" : "async"}
+					class="w-full md:group-hover:rotate-[-2deg] md:group-hover:scale-[1.2] duration-300 transition-all grayscale md:group-hover:grayscale-0"
+				/>
+			</div>
+			<div class="overflow-hidden">
+				<span
+					class="text-gray-400 uppercase tracking-wider text-sm font-medium"
+				>
+					{blogPostEntry.data.category}
+				</span>
+				<h2
+					class="tracking-tighter text-xl font-medium leading-snug mt-1 md:group-hover:text-blue-500 duration-200 transition-all"
+				>
+					{blogPostEntry.data.title}
+				</h2>
+
+				<div class="flex gap-2 mt-2 tracking-tighter">
+					<!-- <span class="text-gray-400">
+                {blogPostEntry.data.author}
+              </span>
+              <span class="text-gray-400">• </span> -->
+					<time
+						class="text-gray-400"
+						datetime={blogPostEntry.data.publishDate.toISOString()}
+					>
+						{blogPostEntry.data.publishDate.toDateString()}
+					</time>
+				</div>
+			</div>
+		</div>
+	</a>
+</>

@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content"
+import { Container } from "@component/Container"
+import { Layout } from "@globals"
+import { Button } from "@component/Button"
+import { Icon } from "astro-icon"
+
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const blogEntries = await getCollection("project")
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}))
+}
+
+// Get the entry directly from the prop on render
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title} description={entry.data.snippet}>
+	<Container>
+		<div class="mx-auto max-w-3xl mt-14 border-b pb-1">
+			<span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+				{entry.data.category}
+			</span>
+			<h1
+				class="text-3xl lg:text-4xl font-bold lg:tracking-tight mt-1 lg:leading-tight"
+			>
+				{entry.data.title}
+			</h1>
+			<div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
+				<!-- <span class="text-gray-400">
+          {entry.data.author}
+        </span>
+        <span class="text-gray-400">•</span> -->
+				<time
+					class="text-sm text-gray-500"
+					datetime={entry.data.publishDate.toISOString()}
+				>
+					{entry.data.publishDate.toDateString()}
+				</time>
+				<span class="text-gray-400 hidden md:block">•</span>
+				<div class="w-full tracking-tight md:w-auto flex flex-wrap gap-2">
+					{
+						entry.data.tags.map((tag) => (
+							<span class="text-sm text-gray-500">#{tag}</span>
+						))
+					}
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-wrap justify-center gap-3 mt-3">
+			{
+				entry.data.webapp && (
+					<a target="_blank" href={entry.data.webapp.link}>
+						<Button style="outline">
+							<p class="flex text-[13px] md:text-[15px]">
+								<Icon class="mr-1 h-5 md:h-6" name="mdi:web" />
+								{entry.data.webapp.name}
+								<Icon
+									class="mt-[4px] h-3 md:h-4"
+									name="mdi:arrow-top-right-thin"
+								/>
+							</p>
+						</Button>
+					</a>
+				)
+			}
+			{
+				entry.data.source && (
+					<a target="_blank" href={entry.data.source.link}>
+						<Button style="outline">
+							<p class="flex text-[13px] md:text-[15px]">
+								<Icon class="mr-1 h-5 md:h-6" name="mdi:git" />
+								{entry.data.source.name}
+								<Icon
+									class="mt-[4px] h-3 md:h-4"
+									name="mdi:arrow-top-right-thin"
+								/>
+							</p>
+						</Button>
+					</a>
+				)
+			}
+		</div>
+	</Container>
+
+	<div class="mx-auto prose mt-3 max-w-max">
+		<Content />
+	</div>
+	<div class="text-center mt-8">
+		<a
+			href="/project"
+			class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
+			>← Back to project</a
+		>
+	</div>
+	<!-- </Container> -->
+</Layout>

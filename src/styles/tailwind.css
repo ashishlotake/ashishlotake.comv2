@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* notification */
+.notification {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	flex: auto;
+	font-size: 16px;
+}
+
+blockquote {
+	background-color: #f6f8f9;
+	border-end-end-radius: 10px;
+	border-top-right-radius: 10px;
+	/* font-size: 16px; */
+	letter-spacing: -0.03em;
+}
+
+@media (max-width: 640px) {
+	table {
+		overflow-y: scroll;
+		display: block;
+	}
+}
+
+@media (max-width: 1536px) {
+	table {
+		overflow-y: scroll;
+	}
+}
+
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+/*  */
+
+.highlight-container,
+.highlight {
+	position: relative;
+}
+
+.highlight-container {
+	display: inline-block;
+}
+.highlight-container:before,
+.highlight-container:after {
+	content: " ";
+	display: block;
+	height: 90%;
+	width: 100%;
+	margin-left: -3px;
+	margin-right: -3px;
+	position: absolute;
+}
+.highlight-container:before {
+	background: rgba(234, 221, 6, 0.9);
+	transform: rotate(2deg);
+	top: -1px;
+	left: -1px;
+}
+.highlight-container:after {
+	background: rgba(234, 210, 6, 0.6);
+	top: 3px;
+	right: -2px;
+}
+
+.highlight-container .highlight {
+	color: #333;
+	z-index: 4;
+}
+
+/*  */
+
+.animation-pulse {
+	box-shadow: 0 0 0 0px rgba(229, 62, 62, 0.1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.99);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.98);
+	}
+}
+
+/* to remove bullet from accordian */
+
+/* make the lite video embed with border radius  */
+lite-vimeo {
+	border-radius: 0.5rem;
+}
+
+/* turn the GoogleMap into grayscale */
+.mapbox figure {
+	height: 100%;
+}
+
+/* stop from getting the map to receive mouse movement */
+.mapbox iframe {
+	border: none;
+	filter: grayscale(1) invert(1);
+}
+
+/* stop mouse movement */
+.mapbox iframe {
+	pointer-events: none;
+}
+
+/* make links blue color in mdx blog */
+.prose a:not([class]) {
+	color: #0ea5e9;
+}
+
+/* project hover line */
+.link-underline1 {
+	position: relative;
+}
+
+.link-underline1:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 2px;
+	display: block;
+	margin-top: 0px;
+	right: 0;
+	background: radial-gradient(
+		circle farthest-corner at 10% 20%,
+		rgba(109, 127, 253, 1) 0%,
+		rgba(168, 91, 245, 1) 90%
+	);
+	transition: width 0.25s ease;
+	-webkit-transition: width 0.25s ease;
+}
+
+.link-underline1:hover:after {
+	width: 100%;
+	left: 0;
+	background: radial-gradient(
+		circle farthest-corner at 10% 20%,
+		rgba(109, 127, 253, 1) 0%,
+		rgba(168, 91, 245, 1) 90%
+	);
+}

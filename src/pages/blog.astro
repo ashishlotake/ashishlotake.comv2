@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content"
+import { Picture } from "@astrojs/image/components"
+import { Layout } from "@globals"
+import { Container } from "@component/Container"
+import { Sectionhead } from "@component/Sectionhead"
+
+import { Blogcard } from "@component/Blogcard"
+
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+	return !data.draft && data.publishDate < new Date()
+})
+
+// Sort content entries by publication date
+publishedBlogEntries.sort(function (a, b) {
+	return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+})
+---
+
+<Layout
+	title="Blog"
+	description="Welcome to my personal website, where I combine my passion for machine learning engineering and travelling"
+>
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Blog</Fragment>
+			<Fragment slot="desc"></Fragment>
+		</Sectionhead>
+		<main class="mt-12">
+			<ul class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+				{
+					publishedBlogEntries.map((blogPostEntry, index) => (
+						<li>
+							<Blogcard blogPostEntry={blogPostEntry} index={index} />
+						</li>
+					))
+				}
+			</ul>
+		</main>
+	</Container>
+</Layout>

@@ -1,0 +1,73 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon"
+import { Container } from "@component/Container"
+import { Link } from "@component/Link"
+
+const menuitems = [
+	{
+		title: "Home",
+		path: "/"
+	},
+	{
+		title: "Project",
+		path: "/project"
+	},
+	{
+		title: "Blog",
+		path: "/blog"
+	},
+	{
+		title: "About",
+		path: "/about"
+	}
+]
+---
+
+<header class="sticky top-0 z-30 w-full justify-between fixedbottom-0">
+	<Container>
+		<nav>
+			<div class="flex justify-center mx-auto">
+				<div
+					class="flex items-center space-x-1 border p-2 rounded-3xl bg-white m-2"
+				>
+					<ul class="space-x-1 inline-flex">
+						{
+							menuitems.map((item, index) => (
+								<>
+									<li>
+										<a
+											href={item.path}
+											class="relative inline-flex rounded-3xl p-2 py-0 text-[14px]  tracking-wide text-gray-600 transition hover:text-black md:text-base"
+										>
+											{item.title}
+										</a>
+									</li>
+								</>
+							))
+						}
+
+						<li>
+							<a
+								aria-label="Resume"
+								target="_blank"
+								href="https://resume.ashishlotake.com"
+								class="group animation-pulse tracking-wide select-none text-[14px] relative inline-flex items-center justify-center cursor-pointer p-2 border border-solid py-0 rounded-3xl overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 bg-gray-800 text-white border-black hover:text-gray-800 focus:text-gray-800"
+							>
+								Resume
+								<Icon
+									class="hidden md:block h-4 mx-1"
+									name="mdi:account-arrow-right-outline"
+								/>
+
+								<span
+									class="absolute bg-white bottom-0 w-0 left-1/2 h-full -translate-x-1/2 transition-all ease-in-out duration-300 group-hover:w-[105%] -z-[1] group-focus:w-[105%]"
+								></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</Container>
+</header>

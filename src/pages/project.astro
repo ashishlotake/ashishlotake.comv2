@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content"
+import { Layout } from "@globals"
+import { Container } from "@component/Container"
+import { Sectionhead } from "@component/Sectionhead"
+
+import { Projectcard } from "@component/Projectcard"
+
+// Filter project entries with 'draft: false' & date before current date
+const publishedProjectEntries = await getCollection("project", ({ data }) => {
+	return !data.draft && data.publishDate < new Date()
+})
+
+// Sort content entries by publication date
+publishedProjectEntries.sort(function (a, b) {
+	return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+})
+---
+
+<Layout title="Case Studies">
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Case Studies</Fragment>
+			<Fragment slot="desc">
+				<!-- We write about building startups and thoughts going on our mind. -->
+			</Fragment>
+		</Sectionhead>
+		<main class="mt-12">
+			<ul class="grid mdgrid-cols-2 gap-5 mx-auto">
+				{
+					publishedProjectEntries.map((projectPostEntry, index) => (
+						<Projectcard projectPostEntry={projectPostEntry} index={index} />
+					))
+				}
+			</ul>
+		</main>
+	</Container>
+</Layout>

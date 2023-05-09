@@ -1,0 +1,13 @@
+---
+import { Media } from "accessible-astro-components"
+
+const { picture, picTitle = "", caption = "" } = Astro.props
+const { class: className } = Astro.props
+---
+
+<div class={className}>
+	<Media class="my-2 rounded-md m-0 block ml-auto mr-auto" src={picture} />
+	<p class="text-[#828282] text-[12px] text-center">
+		<b>{picTitle}</b>: {caption}
+	</p>
+</div>

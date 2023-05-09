@@ -1,0 +1,99 @@
+---
+// @ts-ignore
+import { Modal } from "accessible-astro-components"
+import { Link } from "@component/Link"
+import { Icon } from "astro-icon"
+
+const social = [
+	{
+		name: "Resume",
+		link: "/"
+	},
+	{
+		name: "Mail Me",
+		link: "mailto:ashishlotake@duck.com"
+	},
+	{
+		name: "twitter",
+		link: "https://twitter.com/Ashish02lotake",
+		icon: "simple-icons:twitter"
+	},
+	{
+		name: "git",
+		link: "https://github.com/ashishlotake",
+		icon: "simple-icons:github"
+	},
+	{
+		name: "linkedin",
+		link: "https://www.linkedin.com/in/ashish-lotake",
+		icon: "simple-icons:linkedin"
+	},
+	{
+		name: "medium",
+		link: "/",
+		icon: "simple-icons:medium"
+	}
+]
+---
+
+<div
+	class="bg-black p-8 md:px-20 md:py-20 mt-10 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center"
+>
+	<h2 class="text-white text-2xl md:text-3xl tracking-tighter font-medium">
+		🗣 <br />
+		Love what you see <br />
+		Wanna share feedback or suggestion
+	</h2>
+
+	<div class="flex mt-5">
+		<button
+			id="modal2-trigger"
+			class="border rounded bg-gray-200 hover:bg-black hover:text-white p-3"
+			>Get in Touch</button
+		>
+		<Modal triggerId="modal2-trigger" title=" ">
+			<div class="gap-y-3 w-full flex flex-col justify-center items-center">
+				<div class="text-xl font-semibold">Hey! let's connect</div>
+				<div class="flex gap-2 flex-row flex-wrap tracking-tighter">
+					{
+						social.slice(0, 2).map((item) => (
+							<button class="" onclick="closeModal()">
+								<Link
+									aria_label=""
+									size="sm"
+									style="modal"
+									rel="noopener"
+									href={item.link}
+									class="flex items-center justify-center"
+									target="_blank"
+								>
+									{item.name}
+								</Link>
+							</button>
+						))
+					}
+				</div>
+
+				<div class="flex gap-1 flex-row flex-wrap tracking-tighter">
+					{
+						social.slice(2).map((item) => (
+							<button class="" onclick="closeModal()">
+								<Link
+									aria_label=""
+									size="sm"
+									style="outline"
+									rel="noopener"
+									href={item.link}
+									class="flex items-center justify-center"
+									target="_blank"
+								>
+									<Icon class=" h-6" name={item.icon} />
+								</Link>
+							</button>
+						))
+					}
+				</div>
+			</div>
+		</Modal>
+	</div>
+</div>

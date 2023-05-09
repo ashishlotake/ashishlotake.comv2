@@ -1,0 +1,223 @@
+---
+// import { getCollection } from "astro:content"
+import { Picture } from "@astrojs/image/components"
+
+import { Sectionhead } from "@component/Sectionhead"
+import { Logos } from "@component/Logos"
+
+import { Icon } from "astro-icon"
+
+import { Container } from "@component/Container"
+import { Layout } from "@globals"
+import { Cta } from "@component/Cta"
+
+import heroImage from "@img/hero.png"
+
+// Filter team entries with 'draft: false' & date before current date
+// const publishedTeamMembers = await getCollection("team", ({ data }) => {
+// 	return !data.draft && data.publishDate < new Date()
+// })
+
+const about = [
+	{
+		name: "Now",
+		content:
+			"I love exploring the frontiers of data science, finding patterns in chaos, and translating insights into solutions. Whether I'm building predictive models, developing natural language processing algorithms, or experimenting with deep learning architectures, I'm always eager to learn and grow. Join me on my journey of discovery"
+	},
+	{
+		name: "Skills",
+		content:
+			"I primarly work with Pytorch ecosystem using and I've worked extensively with tools such as Pandas, Numpy, Matplotlib, Seaborn, AWS, Streamlit, Docker, Tailwind css, Nextjs, Astro and much more. The field of Machine learning is endless field of untapped discoveries, and I have yet to scratch the surface."
+	},
+	{
+		name: "Now",
+		content:
+			"Recent graduate looking for part/full-time internship opportunities or junior positions to work with startups on developing and designing web applications."
+	}
+]
+
+const selectproject = [
+	{
+		name: " Active Labelling system ",
+		link: "project/active-labelling-system-project",
+		content:
+			"A WebApp to automatically label your images using convolutional neural networks deployed on Streamlit"
+	},
+	{
+		name: " General Q&A Conversational ChatBot ",
+		link: "project/general_qna_bot",
+		content:
+			"This is a Q&A chatbot, which is capable of answering user questions."
+	}
+]
+
+const selectBlog = [
+	{
+		name: "Blog 1",
+		link: "",
+		content:
+			"orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui"
+	},
+	{
+		name: "Blog 2",
+		link: "",
+		content:
+			"orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui"
+	}
+]
+---
+
+<Layout title="About">
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">About</Fragment>
+			<Fragment slot="desc"></Fragment>
+		</Sectionhead>
+
+		<div class="md:grid grid-cols-4 mt-12">
+			<!-- about -->
+			<!-- <div class="text-gray-500 text-[16px] pb-3 md:pb-0">About</div> -->
+			<div class="group text-center">
+				<span>
+					<Picture
+						src={heroImage}
+						alt="ashish Lotake"
+						sizes="(max-width: 700px) 60vw, 400px"
+						widths={[200, 600, 700]}
+						aspectRatio="1:1"
+						background="#ffffff"
+						fit="cover"
+						position="center"
+						class="w-full overflow-hidden rounded-full grayscale transition-all duration-300 md:w-[80%] md:group-hover:rotate-[-2deg] md:group-hover:scale-125 md:group-hover:grayscale-0"
+					/>
+				</span>
+			</div>
+
+			<div class="col-span-4 md:col-span-3 flex items-center justify-center">
+				<div class="mt-5 md:mt-0">
+					<!-- <p
+						class="text-center md:text-left font-medium text-neutral-600 mb-5 md:mb-0"
+					>
+						Machine Learning Engineer @ newcompanym
+					</p> -->
+					<p class="tracking-tight text-slate-500">
+						I love exploring the frontiers of data science, finding patterns in
+						chaos, and translating insights into solutions. Whether I'm building
+						predictive models, developing natural language processing
+						algorithms, or experimenting with deep learning architectures, I'm
+						always eager to learn and grow. Join me on my journey of discovery
+					</p>
+				</div>
+			</div>
+
+			<!--  -->
+		</div>
+
+		<div class="md:grid grid-cols-4 mt-10">
+			<!-- about -->
+			<div class="text-gray-500 text-[16px] mb-6 md:pb-0">About</div>
+			<div class="col-span-4 md:col-span-3">
+				{
+					about.map((item) => (
+						<div class="mb-6">
+							<p class="font-medium text-neutral-600">{item.name}</p>
+							<p class=" tracking-tight text-slate-500">{item.content}</p>
+						</div>
+					))
+				}
+			</div>
+
+			<!-- where -->
+
+			<div class="text-gray-500 text-[16px] mt-10 md:mt-0 mb-6 md:pb-0">
+				Where
+			</div>
+			<div
+				class="aspect-auto mb-10 mt-5 md:mt-0 rounded-xl mapbox overflow-hidden col-span-4 md:col-span-3 bg-gray-300 flex"
+			>
+				<iframe
+					class="w-full aspect-video"
+					title="My where about"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448691.78199955495!2d76.87934598954449!3d28.52755768401891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1683544597740!5m2!1sen!2sin"
+					width="650"
+					height="450"
+					style="border:0;"
+					allowfullscreen="true"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				>
+				</iframe>
+			</div>
+
+			<!-- Case Studies -->
+
+			<div class="text-gray-500 text-[16px] mt-8 md:mt-0">Selected Work</div>
+			<div class="col-span-4 md:col-span-3 mt-4 md:mt-0">
+				<div class="">
+					{
+						selectproject.map((item) => (
+							<div class="pb-6">
+								<a
+									href={item.link}
+									class="flex font-medium text-neutral-600 hover:text-black"
+								>
+									{item.name}
+									<Icon class="mt-[4px] h-4" name="mdi:arrow-top-right-thin" />
+								</a>
+								<p class="leading-tight tracking-tight text-slate-500 line-clamp-2">
+									{item.content}
+								</p>
+							</div>
+						))
+					}
+
+					<div class="pt4 pb-8 text-left">
+						<a
+							href="project"
+							class="link-underline1 text-gray-600 hover:text-black duration-200"
+							>View All Projects &rarr;</a
+						>
+					</div>
+				</div>
+			</div>
+
+			<!-- Select Writing -->
+
+			<!-- <div class="text-gray-500 text-[16px] md:pb-0">Select Writing</div>
+			<div class="col-span-4 md:col-span-3 mt-4 md:mt-0">
+				<div class="">
+					{
+						selectproject.map((item) => (
+							<div class="pb-6">
+								<a
+									href={item.link}
+									class="flex font-medium text-neutral-600 hover:text-black"
+								>
+									{item.name}
+									<Icon class="mt-[4px] h-4" name="mdi:arrow-top-right-thin" />
+								</a>
+								<p class="leading-tight tracking-tight text-slate-500 line-clamp-2">
+									{item.content}
+								</p>
+							</div>
+						))
+					}
+
+					<div class="pt4 pb-10 text-left font-medium">
+						<a
+							href="blog"
+							class="link-underline1 text-gray-600 hover:text-black duration-200 after:content-['_→']"
+							>View All Projects &rarr;</a
+						>
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<div class="mt-5">
+			<Logos />
+		</div>
+
+		<Cta />
+	</Container>
+</Layout>

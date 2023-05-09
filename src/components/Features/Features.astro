@@ -1,0 +1,79 @@
+---
+// @ts-ignore
+import { getCollection } from "astro:content"
+import { Projectcard } from "@component/Projectcard"
+
+// Filter project entries with 'draft: false' & date before current date
+const publishedprojectEntries = await getCollection("project", ({ data }) => {
+	return !data.draft && data.publishDate < new Date()
+})
+
+// Sort content entries by publication date
+publishedprojectEntries.sort(function (a, b) {
+	return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+})
+
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+	return !data.draft && data.publishDate < new Date()
+})
+
+// Sort content entries by publication date
+publishedBlogEntries.sort(function (a, b) {
+	return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+})
+---
+
+<!-- <div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Everything you need to start a website
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Astro comes batteries included. It takes the best parts of state-of-the-art
+    tools and adds its own innovations.
+  </p>
+</div> -->
+<div class="gap-5">
+	<div class="mb-4">
+		<h2 class="text-xl md:text-2xl font-semibold tracking-tight">
+			Recent Project
+		</h2>
+	</div>
+	<ul class="grid gap-5 mx-auto">
+		{
+			publishedprojectEntries.slice(0, 3).map((ProjectPostEntry, index) => (
+				<li>
+					<Projectcard projectPostEntry={ProjectPostEntry} index={index} />
+				</li>
+			))
+		}
+	</ul>
+</div>
+<div class="mt-5 text-base text-right">
+	<a
+		aria-label="View More Project"
+		href="project"
+		class="hover:underline text-gray-600 hover:text-black duration-200 after:content-['_→']"
+	>
+		More Project
+	</a>
+</div>
+
+<!-- <div class=" ">
+  <div class="mt-4 mb-2">
+    <h2 class="text-xl md:text-2xl font-semibold tracking-tight">
+      Recent Blog
+    </h2>
+  </div>
+
+<ul class="grid md:grid-cols-2 mt-5 gap-10  mx-auto">
+  {
+    publishedBlogEntries.slice(0, 2).map((BlogPostEntry, index) => (
+      <li>
+        <BlogCard blogPostEntry={BlogPostEntry} index={index}/>
+      </li>
+    ))
+  }
+</ul>
+
+</div> -->

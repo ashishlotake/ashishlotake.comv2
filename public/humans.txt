@@ -1,0 +1,16 @@
+This website is developed by Ashish Lotake, I am a machine learning engineer from India
+                            
+/* TEAM */                            
+Machine Learning Engineer:Ashish lotake.   
+Site: hello [at] ashishlotake.com
+Twitter: @ashish02lotake
+From: Pune, Maharashtra, India  
+GitHub: https://github.com/shaunchander
+Twitter: https://twitter.com/shaunchander
+
+/* SITE */                  
+Last update: 2023/09/05         
+Doctype:HTML5  
+Components: Modernizr, jQuery, etc.               
+Software: Vscode, Vercel, Github
+                          

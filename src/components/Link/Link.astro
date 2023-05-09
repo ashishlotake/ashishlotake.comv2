@@ -1,0 +1,52 @@
+---
+import { string } from "astro/zod";
+
+interface Props {
+  aria_label: string;
+  href: string;
+  size?: "md" | "lg" | "sm";
+  block?: boolean;
+  style?: "outline" | "primary" | "inverted" | "muted" | "modal";
+  class?: string;
+  [x: string]: any;
+}
+
+const {
+  aria_label,
+  href,
+  block,
+  size = "lg",
+  style = "primary",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const sizes = {
+  sm: "p-2",
+  lg: "px-5 py-2.5",
+  md: "px-4 py-2",
+};
+
+const styles = {
+  outline: "bg-white border-2 border-black hover:bg-gray-100 text-black ",
+  primary: "bg-black text-white hover:bg-gray-800  border-2 border-transparent",
+  inverted: "bg-white text-black   border-2 border-transparent",
+  muted: "bg-gray-100 hover:bg-gray-200   border-2 border-transparent",
+  modal:
+    "p-2 border-2 border-black bg-black md:bg-gray-200 text-white md:text-black md:hover:bg-black md:hover:text-white",
+};
+---
+
+<a
+  aria-label={aria_label}
+  href={href}
+  {...rest}
+  class:list={[
+    "rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
+    block && "w-full",
+    sizes[size],
+    styles[style],
+    className,
+  ]}
+  ><slot />
+</a>
