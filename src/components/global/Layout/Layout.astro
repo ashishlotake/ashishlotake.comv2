@@ -46,6 +46,8 @@ const makeTitle = title
 	: "My Portfolio"
 
 const makeDesc = description ? description : seoConfig.description
+
+const img = image.src ? image.src : seoConfig.image.url
 ---
 
 <html lang="en">
@@ -56,33 +58,29 @@ const makeDesc = description ? description : seoConfig.description
 			description={makeDesc}
 			noindex={disableIndexing}
 			nofollow={disableIndexing}
-			openGraph={{
-				basic: {
-					title: `${makeTitle}`,
-					type: "website",
-					image:
-						`https://ashishlotake-comv2.vercel.app${image.src}` ||
-						seoConfig.image.url
-				},
-				article: {
-					// publishedTime: "2021-09-22",
-					// modifiedTime: "2021-09-22",
-					authors: ["Ashish Lotake"]
-					// tags: ["Spy fiction", "Thriller"]
-				},
-				image: {
-					width: seoConfig.image.width,
-					height: seoConfig.image.height,
-					alt: seoConfig.image.alt || image.alt
-				},
-				optional: {
-					siteName: "Ashish Lotake Digital Garden"
-					// description: makeDesc
-				}
-			}}
 			twitter={{
 				creator: "@ashish02lotake"
 			}}
+		/>
+
+		<meta name="robots" content="follow, index" />
+		<meta name="description" content={description} />
+		<meta property="og:url" content={`${seoConfig.baseURL}${img}`} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={seoConfig.siteName} />
+		<meta property="og:description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta
+			property="og:image"
+			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
+		/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="https://twitter.com/Ashish02lotake" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image"
+			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
 		/>
 
 		<!-- Global meta tags. -->
@@ -294,5 +292,28 @@ const makeDesc = description ? description : seoConfig.description
 			// This is a hack to get vite-plugin-pwa to generate a sw.js file.
 			// Do not remove this script tag.
 		</script>
-	</body>
+	</body><!-- openGraph={{
+	basic: {
+		title: `${makeTitle}`,
+		type: "website",
+		image:
+			`https://ashishlotake-comv2.vercel.app${image.src}` ||
+			seoConfig.image.url
+	},
+	article: {
+		// publishedTime: "2021-09-22",
+		// modifiedTime: "2021-09-22",
+		authors: ["Ashish Lotake"]
+		// tags: ["Spy fiction", "Thriller"]
+	},
+	image: {
+		width: seoConfig.image.width,
+		height: seoConfig.image.height,
+		alt: seoConfig.image.alt || image.alt
+	},
+	optional: {
+		siteName: "Ashish Lotake Digital Garden"
+		// description: makeDesc
+	}
+}} -->
 </html>
