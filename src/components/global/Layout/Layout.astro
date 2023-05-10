@@ -67,20 +67,20 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 		/>
 
 		<meta name="robots" content="follow, index" />
-		<meta name="description" content={description} />
+		<!-- <meta name="description" content={description} /> -->
 		<meta property="og:url" content={`${seoConfig.baseURL}${img}`} />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content={seoConfig.siteName} />
-		<meta property="og:description" content={description} />
-		<meta property="og:title" content={title} />
+		<meta property="og:site_name" content={`${seoConfig.siteName}`} />
+		<!-- <meta property="og:description" content={description} /> -->
+		<meta property="og:title" content={`${makeTitle}`} />
 		<meta
 			property="og:image"
 			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
 		/>
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="https://twitter.com/Ashish02lotake" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
+		<meta name="twitter:title" content={`${makeTitle}`} />
+		<!-- <meta name="twitter:description" content={description} /> -->
 		<meta
 			name="twitter:image"
 			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
