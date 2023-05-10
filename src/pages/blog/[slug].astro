@@ -3,7 +3,6 @@ import { getCollection } from "astro:content"
 import { Picture } from "@astrojs/image/components"
 import { Container } from "@component/Container"
 import { Layout } from "@globals"
-import { PicWithCap } from "@component/PicWithCap"
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -66,7 +65,6 @@ const { Content } = await entry.render()
 			position="center"
 			class="object-cover object-center sm:h-72 w-full h-36 rounded-lg"
 		/>
-		{entry.data.image}
 	</Container>
 
 	<div class="mx-auto prose max-w-max">

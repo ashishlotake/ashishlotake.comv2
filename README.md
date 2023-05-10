@@ -73,17 +73,50 @@ pnpm astro --help
 Inside of your Astro project, you'll see the following folders and files:
 
 ```
-/
-├── public/
-│   └── ...
-├── src/
-│   ├── components/
-│   │   └── ...
-│   ├── layouts/
-│   │   └── ...
-│   └── pages/
-│       └── ...
-└── package.json
+src
+├── assets
+│   ├── img
+│   └── svg
+│       └── icons
+├── components
+│   └── Button
+│   │   ├── Button.astro
+│   │   └── index.ts
+│   ├── Blogcard
+│   │   ├── Blogcard.astro
+│   │   └── index.ts
+│   └── global
+│       ├── Footer
+│       │   ├── Footer.astro
+│       │   └── index.ts
+│       ├── Header
+│       │   ├── Header.astro
+│       │   └── index.ts
+│       └── Layout
+│           ├── index.ts
+│           └── Layout.astro
+├── pages
+│   ├── index.astro
+│   └── project.astro
+│   ├── blog.astro
+│   └── about.astro
+├── styles
+│   └── tailwind.css
+└── env.d.ts
+utils
+└── seoConfig.ts
+.editorconfig
+.env
+.eslintrc.js
+.gitignore
+.npmrc
+.prettierignore
+.prettierrc.js
+astro.config.ts
+package.json
+README.md
+tailwind.config.js
+tsconfig.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
@@ -111,3 +144,5 @@ description full of well-researched keywords." openGraph={{ basic: { title: "A
 Very Descriptive Title", type: "A type.", image: "Image", } }} twitter={{
 creator: "@jonasmerlins1" }} />
 ```
+
+For More read [Astro-Seo](https://github.com/jonasmerlin/astro-seo) docs

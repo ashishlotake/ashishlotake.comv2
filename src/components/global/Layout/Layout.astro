@@ -41,14 +41,20 @@ const {
 	image,
 	disableIndexing = false
 } = Astro.props as Props
+
+const makeTitle = title
+	? title + " | " + "Ashish Lotake Portfolio"
+	: "My Portfolio"
+
+const makeDesc = description ? description : seoConfig.description
 ---
 
 <html lang="en">
 	<head>
 		<!-- SEO. -->
 		<SEO
-			title={title}
-			description={seoConfig.description || description}
+			title={makeTitle}
+			description={makeDesc}
 			noindex={disableIndexing}
 			nofollow={disableIndexing}
 			openGraph={{
@@ -66,7 +72,7 @@ const {
 				},
 				optional: {
 					siteName: seoConfig.siteName,
-					description: seoConfig.description || description
+					description: makeDesc
 				}
 			}}
 			twitter={{
