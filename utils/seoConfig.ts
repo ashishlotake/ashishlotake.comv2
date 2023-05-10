@@ -10,7 +10,7 @@ export const seoConfig = {
 	type: "website",
 	image: {
 		url: "/opengraph.jpg", // Change this to your .
-		alt: "OpenGraph thumbnail description.", // Change thwebsite's thumbnailis to your website's thumbnail description.
+		alt: "Ashish Lotake digital garden.", // Change thwebsite's thumbnailis to your website's thumbnail description.
 		width: 1200,
 		height: 700
 	},

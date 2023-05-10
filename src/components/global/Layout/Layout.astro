@@ -25,6 +25,8 @@ export interface Props {
 
 	imageSRC?: string
 
+	imageALT?: string
+
 	/** Image thumbnail for the page. */
 	// image?: {
 	// 	src: string
@@ -38,6 +40,7 @@ export interface Props {
 const {
 	title,
 	imageSRC,
+	imageALT,
 	ogTitle,
 	description,
 	// image,
@@ -51,6 +54,8 @@ const makeTitle = title
 const makeDesc = description ? description : seoConfig.description
 
 const img = imageSRC ? imageSRC : seoConfig.image.url
+
+const alt = imageALT ? imageALT : seoConfig.image.alt
 ---
 
 <html lang="en">
@@ -72,7 +77,7 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 				image: {
 					width: seoConfig.image.width,
 					height: seoConfig.image.height,
-					alt: ""
+					alt: `${alt}`
 				},
 				article: {
 					// publishedTime: "2021-09-22",
@@ -177,7 +182,7 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 		/>
 		<meta name="msapplication-config" content="/browserconfig.xml" />
 		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-		<meta name="theme-color" content="#ffffff" />
+		<meta name="theme-color" content="#323233" />
 
 		<!-- Service worker registration. -->
 
@@ -226,19 +231,19 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 				}
 				&:first-child {
 					button {
-						border-top-right-radius: 5px;
-						border-top-left-radius: 5px;
+						border-top-right-radius: 10px;
+						border-top-left-radius: 10px;
 					}
 				}
 
 				&:last-child {
 					.accordion__panel {
-						border-bottom-right-radius: 5px;
-						border-bottom-left-radius: 5px;
+						border-bottom-right-radius: 10px;
+						border-bottom-left-radius: 10px;
 					}
 					button {
-						border-bottom-right-radius: 5px;
-						border-bottom-left-radius: 5px;
+						border-bottom-right-radius: 10px;
+						border-bottom-left-radius: 10px;
 					}
 					&.is-active button {
 						border-bottom-right-radius: 0px;
@@ -291,30 +296,9 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 		</main>
 		<Footer />
 
-		<!-- <body>
-		<Header />
-		<slot />
-		<Footer /> -->
-
 		<script>
 			// This is a hack to get vite-plugin-pwa to generate a sw.js file.
 			// Do not remove this script tag.
 		</script>
-	</body><!-- 
-<meta name="robots" content="follow, index" />
-<meta property="og:url" content={`${seoConfig.baseURL}${img}`} />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content={`${seoConfig.siteName}`} />
-<meta property="og:title" content={`${makeTitle}`} />
-<meta
-	property="og:image"
-	content={`${seoConfig.baseURL}${seoConfig.image.url}`}
-/>
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="https://twitter.com/Ashish02lotake" />
-<meta name="twitter:title" content={`${makeTitle}`} />
-<meta
-	name="twitter:image"
-	content={`${seoConfig.baseURL}${seoConfig.image.url}`}
-/> -->
+	</body>
 </html>

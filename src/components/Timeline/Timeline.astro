@@ -1,0 +1,162 @@
+---
+import Container from "@component/Container/Container.astro"
+import { Icon } from "astro-icon"
+
+const TimeLineInfo = [
+	{
+		title: "Applying for Jobs",
+		description:
+			"Feel confident that I can work as a junior Data Scientist. Wish me Luck",
+		icon: "ic:baseline-person-search",
+		color: "bg-sky-400",
+		date: "December 2022",
+		status: "Present"
+	},
+	{
+		title: "Graduated Diploma in Artificial Intelligence & Machine Learning",
+		description: "With 81.6%",
+		icon: "fa-solid:user-graduate",
+		color: "bg-lime-200",
+		date: "January 2023"
+	},
+	{
+		title: "Intership",
+		description: "Artificial Intelligence  Technical Intern",
+		icon: "mdi:chart-multiple",
+		color: "bg-yellow-300",
+		date: "June - August 2022"
+	},
+	{
+		title: "Joined Diploma College",
+		description: " Diploma in Artificial Intelligence & Machine Learning",
+		icon: "ep:school",
+		color: "bg-orange-200",
+		date: "August 2021"
+	},
+	{
+		title: "Graduated Bachelor College",
+		description: "With 8.32 CGPA",
+		icon: "mdi:school-outline",
+		color: "bg-purple-200",
+		date: "July 2021"
+	},
+	{
+		title: "Started College",
+		description: "Bachelor of Technology in Mechancial Engineering",
+		icon: "mdi:human-male-board",
+		color: "bg-red-200",
+		date: "August 2018"
+	},
+	{
+		title: "Finished 10th and Polytechnic",
+		description: "With 87.5% in 10th & 87% in Polytechnic Diploma",
+		icon: "mdi:bus-school",
+		color: " bg-purple-200",
+		date: "July 2018"
+	},
+	{
+		title: "First Code",
+		description: "Wrote my first program in HTML",
+		icon: "mdi:file-code-outline",
+		color: "bg-fuchsia-200",
+		date: "2015"
+	},
+	{
+		title: "Born",
+		description: "Final version releases",
+		icon: "mdi:baby-face-outline",
+		color: " bg-blue-200",
+		date: "February 2nd 1999"
+	}
+]
+---
+
+<div class="mt-10">
+	<h2 class="text-center text-slate-500">Journery</h2>
+</div>
+<ol class="relative mt-6 ml-3 border-l border-gray-400 dark:border-gray-700">
+	{
+		TimeLineInfo.slice(0, 2).map((d) => (
+			<li class=" mb-4 ml-6 rounded-2xl border-2 bg-white px-5 py-2 shadow-lg  md:ml-8">
+				<div />
+				<span
+					class:list={[
+						"absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full   text-black  ring-2 ring-neutral-700",
+						d.color
+					]}
+				>
+					{d.status ? (
+						<>
+							<div class="absolute h-6 w-6 animate-ping rounded-full   bg-black" />
+							<div class="absolute  h-6 w-6 rounded-full" />
+						</>
+					) : null}
+
+					<Icon class="h-5 text-neutral-700" name={d.icon} />
+				</span>
+				<h3 class="m-0  flex w-full font-medium tracking-tight text-neutral-600  ">
+					{d.title}
+
+					{d.status ? (
+						<span class="ml-3 mr-2 h-full rounded bg-blue-100 px-2.5 py-1 text-xs font-medium text-blue-800 ">
+							{d.status}
+						</span>
+					) : null}
+				</h3>
+				<time class="text-sm font-normal leading-none text-gray-500 ">
+					{d.date}
+				</time>
+				<p class="my-1 max-w-none text-sm text-gray-700 ">{d.description}</p>
+			</li>
+		))
+	}
+
+	<section class="w-full">
+		<details
+			class="flex bg-white group mx-auto transition-[max-height] duration-600"
+		>
+			<summary
+				class="ml-5 mb-4 outline-none cursor-pointer font-semibold marker:text-transparent group-open:before:rotate-90 before:origin-center relative before:w-[18px] before:h-[18px] before:transition-transform before:duration-200 before:-left-1 before:top-2/4 before:-translate-y-2/4 before:absolute before:bg-no-repeat before:bg-[length:18px_18px] before:bg-center before:bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22h-6%20w-6%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%3E%0A%20%20%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M9%205l7%207-7%207%22%20%2F%3E%0A%3C%2Fsvg%3E')]"
+			>
+				More
+			</summary>
+			{
+				TimeLineInfo.slice(2).map((d) => (
+					<li class=" mb-4 ml-6 rounded-2xl border-2 bg-white px-5 py-2 shadow-lg  md:ml-8">
+						<div />
+						<span
+							class:list={[
+								"absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full text-black  ring-2 ring-neutral-700",
+								d.color
+							]}
+						>
+							{d.status ? (
+								<>
+									<div class="absolute h-6 w-6 animate-ping rounded-full   bg-black" />
+									<div class="absolute  h-6 w-6 rounded-full" />
+								</>
+							) : null}
+
+							<Icon class="h-5 text-neutral-700" name={d.icon} />
+						</span>
+						<h3 class="m-0  flex w-full font-medium tracking-tight text-neutral-600  ">
+							{d.title}
+
+							{d.status ? (
+								<span class="ml-3 mr-2 h-full rounded bg-blue-300 px-2.5 py-1 text-xs font-bold text-blue-800 ">
+									{d.status}
+								</span>
+							) : null}
+						</h3>
+						<time class="text-sm font-normal leading-none text-gray-500 ">
+							{d.date}
+						</time>
+						<p class="my-1 max-w-none text-sm text-gray-700 ">
+							{d.description}
+						</p>
+					</li>
+				))
+			}
+		</details>
+	</section>
+</ol>

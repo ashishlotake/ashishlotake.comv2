@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+}
 blockquote {
 	background-color: #f6f8f9;
 	border-end-end-radius: 10px;
