@@ -26,10 +26,10 @@ export interface Props {
 	imageSRC?: string
 
 	/** Image thumbnail for the page. */
-	image?: {
-		src: string
-		alt: string
-	}
+	// image?: {
+	// 	src: string
+	// 	alt: string
+	// }
 
 	/** Whether or not to disable indexing */
 	disableIndexing?: boolean
@@ -40,7 +40,7 @@ const {
 	imageSRC,
 	ogTitle,
 	description,
-	image,
+	// image,
 	disableIndexing = false
 } = Astro.props as Props
 
@@ -61,35 +61,39 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 			description={makeDesc}
 			noindex={disableIndexing}
 			nofollow={disableIndexing}
-			twitter={{
-				creator: "@ashish02lotake"
+			openGraph={{
+				basic: {
+					title: ogTitle || title,
+					type: "website",
+					image:
+						`${seoConfig.baseURL}${img}` ||
+						`${seoConfig.baseURL}${seoConfig.image.url}`
+				},
+				image: {
+					width: seoConfig.image.width,
+					height: seoConfig.image.height,
+					alt: ""
+				},
+				article: {
+					// publishedTime: "2021-09-22",
+					// modifiedTime: "2021-09-22",
+					authors: ["Ashish Lotake"]
+					// tags: ["Spy fiction", "Thriller"]
+				},
+				optional: {
+					siteName: "Ashish Lotake Digital Garden",
+					description: makeDesc
+				}
 			}}
-		/>
-
-		<meta name="robots" content="follow, index" />
-		<!-- <meta name="description" content={description} /> -->
-		<meta property="og:url" content={`${seoConfig.baseURL}${img}`} />
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content={`${seoConfig.siteName}`} />
-		<!-- <meta property="og:description" content={description} /> -->
-		<meta property="og:title" content={`${makeTitle}`} />
-		<meta
-			property="og:image"
-			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
-		/>
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="https://twitter.com/Ashish02lotake" />
-		<meta name="twitter:title" content={`${makeTitle}`} />
-		<!-- <meta name="twitter:description" content={description} /> -->
-		<meta
-			name="twitter:image"
-			content={`${seoConfig.baseURL}${seoConfig.image.url}`}
+			twitter={{
+				card: seoConfig.twitter.card
+			}}
 		/>
 
 		<!-- Global meta tags. -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="author" content="Ashish Lotake" />
+		<!-- <meta name="author" content="Ashish Lotake" /> -->
 		<!-- Favicons. -->
 		<link
 			rel="apple-touch-icon"
@@ -295,28 +299,21 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 			// This is a hack to get vite-plugin-pwa to generate a sw.js file.
 			// Do not remove this script tag.
 		</script>
-	</body><!-- openGraph={{
-	basic: {
-		title: `${makeTitle}`,
-		type: "website",
-		image:
-			`https://ashishlotake-comv2.vercel.app${image.src}` ||
-			seoConfig.image.url
-	},
-	article: {
-		// publishedTime: "2021-09-22",
-		// modifiedTime: "2021-09-22",
-		authors: ["Ashish Lotake"]
-		// tags: ["Spy fiction", "Thriller"]
-	},
-	image: {
-		width: seoConfig.image.width,
-		height: seoConfig.image.height,
-		alt: seoConfig.image.alt || image.alt
-	},
-	optional: {
-		siteName: "Ashish Lotake Digital Garden"
-		// description: makeDesc
-	}
-}} -->
+	</body><!-- 
+<meta name="robots" content="follow, index" />
+<meta property="og:url" content={`${seoConfig.baseURL}${img}`} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={`${seoConfig.siteName}`} />
+<meta property="og:title" content={`${makeTitle}`} />
+<meta
+	property="og:image"
+	content={`${seoConfig.baseURL}${seoConfig.image.url}`}
+/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="https://twitter.com/Ashish02lotake" />
+<meta name="twitter:title" content={`${makeTitle}`} />
+<meta
+	name="twitter:image"
+	content={`${seoConfig.baseURL}${seoConfig.image.url}`}
+/> -->
 </html>
