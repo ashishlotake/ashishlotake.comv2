@@ -58,11 +58,11 @@ const makeDesc = description ? description : seoConfig.description
 			nofollow={disableIndexing}
 			openGraph={{
 				basic: {
-					title: { makeTitle },
+					title: `${makeTitle}`,
 					type: "website",
 					image:
-						seoConfig.image.url ||
-						`https://ashishlotake-comv2.vercel.app${image.src}`
+						`https://ashishlotake-comv2.vercel.app${image.src}` ||
+						seoConfig.image.url
 				},
 				article: {
 					// publishedTime: "2021-09-22",
@@ -76,7 +76,7 @@ const makeDesc = description ? description : seoConfig.description
 					alt: seoConfig.image.alt || image.alt
 				},
 				optional: {
-					siteName: { makeTitle }
+					siteName: "Ashish Lotake Digital Garden"
 					// description: makeDesc
 				}
 			}}
