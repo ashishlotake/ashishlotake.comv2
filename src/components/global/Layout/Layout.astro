@@ -23,6 +23,8 @@ export interface Props {
 	/** Description of the page. */
 	description?: string
 
+	imageSRC?: string
+
 	/** Image thumbnail for the page. */
 	image?: {
 		src: string
@@ -35,6 +37,7 @@ export interface Props {
 
 const {
 	title,
+	imageSRC,
 	ogTitle,
 	description,
 	image,
@@ -47,7 +50,7 @@ const makeTitle = title
 
 const makeDesc = description ? description : seoConfig.description
 
-const img = image.src ? image.src : seoConfig.image.url
+const img = imageSRC ? imageSRC : seoConfig.image.url
 ---
 
 <html lang="en">
