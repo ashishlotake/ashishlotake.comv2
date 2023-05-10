@@ -1,4 +1,4 @@
-![](public/opengraph.png)
+![](/public/opengraph.png)
 
 # Portfolio
 
@@ -13,7 +13,7 @@ Astro is the all-in-one frontend framework designed for speed, Astro optimizes t
 
 ## Perfect Light House Score with Full PWA support
 
-![](src/assets/img/LightHouseScore.png)
+![](/src/assets/img/LightHouseScore.png)
 
 ---
 
