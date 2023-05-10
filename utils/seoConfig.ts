@@ -33,31 +33,31 @@ export const manifest: Partial<ManifestOptions> = {
 	display: "standalone",
 	icons: [
 		{
-			src: "/favicon-72x72.png",
+			src: "/favicons/favicon-72x72.png",
 			type: "image/png",
 			sizes: "72x72",
 			purpose: "any maskable"
 		},
 		{
-			src: "/favicon-96x96.png",
+			src: "/favicons/favicon-96x96.png",
 			type: "image/png",
 			sizes: "96x96",
 			purpose: "any maskable"
 		},
 		{
-			src: "/favicon-128x128.png",
+			src: "/favicons/favicon-128x128.png",
 			type: "image/png",
 			sizes: "128x128",
 			purpose: "any maskable"
 		},
 		{
-			src: "/favicon-144x144.png",
+			src: "/favicons/favicon-144x144.png",
 			type: "image/png",
 			sizes: "144x144",
 			purpose: "any maskable"
 		},
 		{
-			src: "/favicon-152x152.png",
+			src: "/favicons/favicon-152x152.png",
 			type: "image/png",
 			sizes: "152x152",
 			purpose: "any maskable"

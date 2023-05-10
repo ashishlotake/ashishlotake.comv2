@@ -127,22 +127,10 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## Credits
 
-### Template
-
-This [portfolio](https://ashishlotake.com) is create using [Web3Templates Template](https://github.com/surjithctly/astroship)
-
 ### Source graphics are used
 
 1. [https://undraw.co/search](https://undraw.co/search)
 2. [https://freesvgillustration.com/illustrations/](https://freesvgillustration.com/illustrations/)
 3. [https://www.manypixels.co/gallery](https://www.manypixels.co/gallery)
 4. [Free SVG Vectors](https://bloggingwizard.com/free-vector-illustrations/)
-
-```html
-<SEO title="A Very Descriptive Title" description="A heavily optimized
-description full of well-researched keywords." openGraph={{ basic: { title: "A
-Very Descriptive Title", type: "A type.", image: "Image", } }} twitter={{
-creator: "@jonasmerlins1" }} />
-```
-
-For More read [Astro-Seo](https://github.com/jonasmerlin/astro-seo) docs
+5. [Croppola for resizing images](https://croppola.com/)
