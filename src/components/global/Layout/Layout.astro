@@ -63,7 +63,7 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 			nofollow={disableIndexing}
 			openGraph={{
 				basic: {
-					title: ogTitle || title,
+					title: `${makeTitle}`,
 					type: "website",
 					image:
 						`${seoConfig.baseURL}${img}` ||
@@ -81,8 +81,8 @@ const img = imageSRC ? imageSRC : seoConfig.image.url
 					// tags: ["Spy fiction", "Thriller"]
 				},
 				optional: {
-					siteName: "Ashish Lotake Digital Garden",
-					description: makeDesc
+					siteName: "Ashish Lotake Digital Garden"
+					// description: makeDesc
 				}
 			}}
 			twitter={{
