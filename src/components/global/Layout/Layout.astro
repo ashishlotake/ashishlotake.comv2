@@ -42,7 +42,7 @@ const {
 } = Astro.props as Props
 
 const makeTitle = title
-	? title + " | " + "Ashish Lotake Portfolio"
+	? title + " | " + "Ashish Lotake Digital Garden"
 	: "My Portfolio"
 
 const makeDesc = description ? description : seoConfig.description
@@ -58,11 +58,11 @@ const makeDesc = description ? description : seoConfig.description
 			nofollow={disableIndexing}
 			openGraph={{
 				basic: {
-					title: ogTitle || title,
+					title: { makeTitle },
 					type: "website",
 					image:
 						seoConfig.image.url ||
-						`https://ashishlotake-comv2.vercel.app/public${image.src}`
+						`https://ashishlotake-comv2.vercel.app${image.src}`
 				},
 				article: {
 					// publishedTime: "2021-09-22",
@@ -76,8 +76,8 @@ const makeDesc = description ? description : seoConfig.description
 					alt: seoConfig.image.alt || image.alt
 				},
 				optional: {
-					siteName: seoConfig.siteName,
-					description: makeDesc
+					siteName: { makeTitle }
+					// description: makeDesc
 				}
 			}}
 			twitter={{
