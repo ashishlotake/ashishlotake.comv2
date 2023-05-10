@@ -11,9 +11,9 @@ Astro is the all-in-one frontend framework designed for speed, Astro optimizes t
 
 > _There’s a simple secret to building a faster website — just ship less._
 
-## Perfect Light House Score
+## Perfect Light House Score with Full PWA support
 
-![](score.gif)
+![](src/assets/img/LightHouseScore.png)
 
 ---
 
@@ -67,8 +67,6 @@ pnpm astro ...
 pnpm astro add
 pnpm astro --help
 ```
-
----
 
 ## Project Structure
 

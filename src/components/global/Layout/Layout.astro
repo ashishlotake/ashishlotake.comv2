@@ -10,6 +10,7 @@ import "@style/tailwind.css"
 
 // Helper imports
 import { seoConfig } from "@util/seoConfig"
+import { string } from "astro/zod"
 
 // Props
 export interface Props {
@@ -25,7 +26,7 @@ export interface Props {
 
 	/** Image thumbnail for the page. */
 	image?: {
-		url: string
+		src: string
 		alt: string
 	}
 
@@ -54,7 +55,9 @@ const {
 				basic: {
 					title: ogTitle || title,
 					type: "website",
-					image: seoConfig.image.url || image.url
+					image:
+						seoConfig.image.url ||
+						`https://ashishlotake-comv2.vercel.app/public${image.src}`
 				},
 				image: {
 					width: seoConfig.image.width,
@@ -151,14 +154,14 @@ const {
 			href="/favicons/favicon.ico"
 		/>
 		<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
-		<meta name="msapplication-TileColor" content="#30E130" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
 		<meta
 			name="msapplication-TileImage"
 			content="/favicons/favicon-144x144.png"
 		/>
 		<meta name="msapplication-config" content="/browserconfig.xml" />
 		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-		<meta name="theme-color" content="#30E130" />
+		<meta name="theme-color" content="#ffffff" />
 
 		<!-- Service worker registration. -->
 

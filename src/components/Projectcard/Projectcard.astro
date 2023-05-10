@@ -22,7 +22,7 @@ const { index } = Astro.props
 				position="center"
 				loading={index <= 2 ? "eager" : "lazy"}
 				decoding={index <= 2 ? "sync" : "async"}
-				class="object-fit md:group-hover:rotate-[-2deg] md:group-hover:scale-[1.2] duration-300 transition-all md:grayscale md:group-hover:grayscale-0"
+				class="object-cover md:group-hover:rotate-[-2deg] md:group-hover:scale-[1.2] duration-300 transition-all md:grayscale md:group-hover:grayscale-0"
 			/>
 		</div>
 	</a>
