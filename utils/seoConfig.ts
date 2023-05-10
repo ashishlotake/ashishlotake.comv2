@@ -9,7 +9,7 @@ export const seoConfig = {
 		"Dive deep into nitty-gritty of Data science, Machine learning & Artificial Intelligence with me!.", // Change this to be your website's description.
 	type: "website",
 	image: {
-		url: "https://ashishlotake-comv2.vercel.app/public/opengraph.png", // Change this to your .
+		url: "https://ashishlotake-comv2.vercel.app/public/opengraph.jpg", // Change this to your .
 		alt: "OpenGraph thumbnail description.", // Change thwebsite's thumbnailis to your website's thumbnail description.
 		width: 1200,
 		height: 700

@@ -3,7 +3,6 @@
 import { SEO } from "astro-seo"
 import { Footer } from "@component/global/Footer"
 import { Header } from "@component/global/Header"
-import opengraph from "/public/opengraph.png"
 
 // Style imports
 import "@style/tailwind.css"
@@ -65,6 +64,12 @@ const makeDesc = description ? description : seoConfig.description
 						seoConfig.image.url ||
 						`https://ashishlotake-comv2.vercel.app/public${image.src}`
 				},
+				article: {
+					// publishedTime: "2021-09-22",
+					// modifiedTime: "2021-09-22",
+					authors: ["Ashish Lotake"]
+					// tags: ["Spy fiction", "Thriller"]
+				},
 				image: {
 					width: seoConfig.image.width,
 					height: seoConfig.image.height,
@@ -83,7 +88,7 @@ const makeDesc = description ? description : seoConfig.description
 		<!-- Global meta tags. -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<meta name="author" content="Ashish Lotake" />
 		<!-- Favicons. -->
 		<link
 			rel="apple-touch-icon"
