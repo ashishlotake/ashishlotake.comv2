@@ -8,7 +8,7 @@ const { index } = Astro.props
 <>
 	<a href={`/blog/${blogPostEntry.slug}`}>
 		<div
-			class="group overflow-hidden gap-3 md:gap-5 items-center shadow-lg duration-300 transition-all rounded-2xl border-2 p-4"
+			class="bg-white group overflow-hidden gap-3 md:gap-5 items-center shadow-lg duration-300 transition-all rounded-2xl border-2 p-4"
 		>
 			<div class="overflow-hidden rounded-xl">
 				<Picture
@@ -27,12 +27,12 @@ const { index } = Astro.props
 			</div>
 			<div class="overflow-hidden">
 				<span
-					class="text-gray-700 uppercase tracking-wider text-sm font-medium"
+					class="text-blue-400 md:text-gray-700 uppercase tracking-wider text-sm font-medium mt-1"
 				>
 					{blogPostEntry.data.category}
 				</span>
 				<h2
-					class="tracking-tighter text-xl font-medium leading-snug mt-1 md:group-hover:text-blue-500 duration-200 transition-all"
+					class="tracking-tighter text-xl font-medium leading-snug md:group-hover:text-blue-500 duration-200 transition-all"
 				>
 					{blogPostEntry.data.title}
 				</h2>

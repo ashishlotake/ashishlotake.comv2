@@ -7,7 +7,7 @@ const { index } = Astro.props
 ---
 
 <div
-	class="group overflow-hidden grid md:grid-cols-2 gap-3 md:gap-5 items-center shadow-lg duration-300 transition-all rounded-2xl border-2 p-4"
+	class="bg-white group overflow-hidden grid md:grid-cols-2 gap-3 md:gap-5 items-center shadow-lg duration-300 transition-all rounded-2xl border-2 p-4"
 >
 	<a href={`/project/${projectPostEntry.slug}`}>
 		<div class="object-cover overflow-hidden rounded-xl">
@@ -28,7 +28,7 @@ const { index } = Astro.props
 	</a>
 	<div class="">
 		<span
-			class="h-7 flex justify-between text-gray-700 md:group-hover:text-blue-400 uppercase tracking-wider text-sm font-medium"
+			class="h-7 flex justify-between text-blue-400 md:text-gray-700 md:group-hover:text-blue-400 uppercase tracking-wider text-sm font-medium"
 		>
 			{projectPostEntry.data.category}
 			<Icon

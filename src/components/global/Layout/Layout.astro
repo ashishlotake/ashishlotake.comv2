@@ -194,12 +194,13 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 				.accordion__item {
 					margin-top: 0em;
 					margin-bottom: 0em;
+					background-color: white;
 
 					&.is-active button {
 						// background-color: #e9e9e9;
 					}
 					&.is-active .accordion__panel {
-						background-color: #e9e9e9;
+						background-color: white;
 					}
 
 					.accordion__panel .panel__inner {
@@ -211,7 +212,10 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 					}
 					h3 {
 						margin-top: 0em;
-						margin-bottom: 0em;
+						margin-bottom: -0.14em;
+						font-size: medium;
+						font-weight: 600;
+						color: #6b7280;
 					}
 				}
 				.accordion {
@@ -224,15 +228,23 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 					}
 				}
 			}
-		</style><style lang="scss" is:global>
+		</style>
+		<style lang="scss" is:global>
 			body .accordion__wrapper > .accordion__item {
-				bottom: {
-					overflow: hidden;
+				button {
+					border-color: #e5e7eb;
+				}
+				&.is-active button {
+					border-color: #e5e7eb;
+				}
+				.accordion__panel {
+					border-color: #e5e7eb;
 				}
 				&:first-child {
 					button {
 						border-top-right-radius: 10px;
 						border-top-left-radius: 10px;
+						// border-color: aqua;
 					}
 				}
 
@@ -244,6 +256,7 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 					button {
 						border-bottom-right-radius: 10px;
 						border-bottom-left-radius: 10px;
+						border-color: #e5e7eb;
 					}
 					&.is-active button {
 						border-bottom-right-radius: 0px;
@@ -251,14 +264,17 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 					}
 				}
 			}
-		</style><style lang="scss" is:global>
+		</style>
+		<style lang="scss" is:global>
 			body {
 				.modal__inner {
 					// color: purple;
 					background-color: white;
-					border-color: black;
-					border-width: 3px;
+					border-width: 2px;
 					overflow: hidden;
+					border-color: #d1d5db;
+					box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+						0 4px 6px -4px rgb(0 0 0 / 0.1);
 				}
 
 				.modal__content {
@@ -289,7 +305,9 @@ const alt = imageALT ? imageALT : seoConfig.image.alt
 	</head>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 
-	<body class="min-h-screen flexflex-col w-full overflow-x-hidden">
+	<body
+		class="min-h-screen flexflex-col w-full overflow-x-hidden bg-fixed bg-gradient-to-br from-indigo-50 via-white to-cyan-100"
+	>
 		<main class="flexflex-1 lex-col h-[100%] w-full">
 			<Header />
 			<slot />
