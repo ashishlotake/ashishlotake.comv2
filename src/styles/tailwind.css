@@ -163,3 +163,9 @@ lite-vimeo {
 		rgba(168, 91, 245, 1) 90%
 	);
 }
+
+.hi {
+	animation: hi 1.5s linear -0.5s infinite;
+	display: inline-block;
+	transform-origin: 70% 70%;
+}

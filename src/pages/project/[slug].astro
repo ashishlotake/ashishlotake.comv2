@@ -4,6 +4,7 @@ import { Container } from "@component/Container"
 import { Layout } from "@globals"
 import { Button } from "@component/Button"
 import { Icon } from "astro-icon"
+import { Link } from "@component/Link"
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -26,7 +27,7 @@ const { Content } = await entry.render()
 >
 	<Container>
 		<div class="mx-auto max-w-3xl mt-14 border-b pb-1">
-			<span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+			<span class="text-blue-500 uppercase tracking-wider text-sm font-medium">
 				{entry.data.category}
 			</span>
 			<h1
@@ -58,34 +59,38 @@ const { Content } = await entry.render()
 		<div class="flex flex-wrap justify-center gap-3 mt-3">
 			{
 				entry.data.webapp && (
-					<a target="_blank" href={entry.data.webapp.link}>
-						<Button style="outline">
-							<p class="flex text-[13px] md:text-[15px]">
-								<Icon class="mr-1 h-5 md:h-6" name="mdi:web" />
-								{entry.data.webapp.name}
-								<Icon
-									class="mt-[4px] h-3 md:h-4"
-									name="mdi:arrow-top-right-thin"
-								/>
-							</p>
-						</Button>
-					</a>
+					<Link
+						aria_label={entry.data.webapp.name}
+						href={entry.data.webapp.link}
+						style="outline"
+					>
+						<p class="flex text-[13px] md:text-[15px]">
+							<Icon class="mr-1 h-5 md:h-6" name="mdi:web" />
+							{entry.data.webapp.name}
+							<Icon
+								class="mt-[4px] h-3 md:h-4"
+								name="mdi:arrow-top-right-thin"
+							/>
+						</p>
+					</Link>
 				)
 			}
 			{
 				entry.data.source && (
-					<a target="_blank" href={entry.data.source.link}>
-						<Button style="outline">
-							<p class="flex text-[13px] md:text-[15px]">
-								<Icon class="mr-1 h-5 md:h-6" name="mdi:git" />
-								{entry.data.source.name}
-								<Icon
-									class="mt-[4px] h-3 md:h-4"
-									name="mdi:arrow-top-right-thin"
-								/>
-							</p>
-						</Button>
-					</a>
+					<Link
+						aria_label={entry.data.source.name}
+						href={entry.data.source.link}
+						style="outline"
+					>
+						<p class="flex text-[13px] md:text-[15px]">
+							<Icon class="mr-1 h-5 md:h-6" name="mdi:git" />
+							{entry.data.source.name}
+							<Icon
+								class="mt-[4px] h-3 md:h-4"
+								name="mdi:arrow-top-right-thin"
+							/>
+						</p>
+					</Link>
 				)
 			}
 		</div>
@@ -94,12 +99,10 @@ const { Content } = await entry.render()
 	<div class="mx-auto prose mt-3 max-w-max">
 		<Content />
 	</div>
-	<div class="text-center mt-8">
-		<a
-			href="/project"
-			class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-			>← Back to project</a
-		>
+	<div class="pt-10 flex flex-col justify-center items-center">
+		<Link aria_label="back to blog" href="/blog" class="py-3">
+			← Back to Project
+		</Link>
 	</div>
 	<!-- </Container> -->
 </Layout>

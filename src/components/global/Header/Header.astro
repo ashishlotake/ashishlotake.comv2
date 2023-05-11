@@ -6,10 +6,6 @@ import { Link } from "@component/Link"
 
 const menuitems = [
 	{
-		title: "Home",
-		path: "/"
-	},
-	{
 		title: "Project",
 		path: "/project"
 	},
@@ -29,16 +25,27 @@ const menuitems = [
 		<nav>
 			<div class="flex justify-center mx-auto">
 				<div
-					class="flex items-center space-x-1 border p-2 rounded-3xl bg-white m-2"
+					class="flex items-center space-x-1 border p-2 rounded-[15px] bg-white m-2"
 				>
 					<ul class="space-x-1 inline-flex">
+						<li>
+							<a
+								aria-label="Home"
+								href="/"
+								class="relative inline-flex rounded-xl p-2 py-0 text-[14px] tracking-wide text-gray-600 transition hover:text-black md:text-base"
+							>
+								<span class="font-bold text-slate-800">Ash</span><span
+									class="text-slate-500">ish</span
+								>
+							</a>
+						</li>
 						{
 							menuitems.map((item, index) => (
 								<>
 									<li>
 										<a
 											href={item.path}
-											class="relative inline-flex rounded-3xl p-2 py-0 text-[14px]  tracking-wide text-gray-600 transition hover:text-black md:text-base"
+											class="relative inline-flex  p-2 py-0 text-[14px]  tracking-wide text-gray-600 transition hover:text-black md:text-base"
 										>
 											{item.title}
 										</a>
@@ -52,7 +59,7 @@ const menuitems = [
 								aria-label="Resume"
 								target="_blank"
 								href="https://resume.ashishlotake.com"
-								class="group animation-pulse tracking-wide select-none text-[14px] relative inline-flex items-center justify-center cursor-pointer p-2 border border-solid py-0 rounded-3xl overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 bg-gray-800 text-white border-black hover:text-gray-800 focus:text-gray-800"
+								class="group animation-pulse tracking-wide select-none text-[15px] relative inline-flex items-center justify-center cursor-pointer p-2 border border-solid py-0 rounded-lg overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 bg-black text-white border-black hover:text-black focus:text-black"
 							>
 								Resume
 								<Icon

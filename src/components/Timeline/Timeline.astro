@@ -77,7 +77,7 @@ const TimeLineInfo = [
 <ol class="relative mt-6 ml-3 border-l border-gray-400 dark:border-gray-700">
 	{
 		TimeLineInfo.slice(0, 2).map((d) => (
-			<li class=" mb-4 ml-6 rounded-2xl border-2 bg-white px-5 py-2 shadow-lg  md:ml-8">
+			<li class=" mb-4 ml-6 rounded-2xl border bg-white px-5 py-2 shadow-lg  md:ml-8">
 				<div />
 				<span
 					class:list={[
@@ -103,7 +103,7 @@ const TimeLineInfo = [
 						</span>
 					) : null}
 				</h3>
-				<time class="text-sm font-normal leading-none text-gray-500 ">
+				<time class="text-sm font-normal italic leading-none text-gray-500 ">
 					{d.date}
 				</time>
 				<p class="my-1 max-w-none text-sm text-gray-700 ">{d.description}</p>
@@ -122,7 +122,7 @@ const TimeLineInfo = [
 			</summary>
 			{
 				TimeLineInfo.slice(2).map((d) => (
-					<li class=" mb-4 ml-6 rounded-2xl border-2 bg-white px-5 py-2 shadow-lg  md:ml-8">
+					<li class=" mb-4 ml-6 rounded-2xl border bg-white px-5 py-2 shadow-lg  md:ml-8">
 						<div />
 						<span
 							class:list={[
@@ -148,7 +148,7 @@ const TimeLineInfo = [
 								</span>
 							) : null}
 						</h3>
-						<time class="text-sm font-normal leading-none text-gray-500 ">
+						<time class="text-sm font-normal italic leading-none text-gray-500 ">
 							{d.date}
 						</time>
 						<p class="my-1 max-w-none text-sm text-gray-700 ">

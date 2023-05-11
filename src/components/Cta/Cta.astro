@@ -3,17 +3,20 @@
 import { Modal } from "accessible-astro-components"
 import { Link } from "@component/Link"
 import { Icon } from "astro-icon"
+import { Button } from "@component/Button"
 
 const social = [
 	{
 		name: "Resume",
 		link: "/",
-		button: "modal"
+		button: "herobtn",
+		icon: "simple-line-icons:docs"
 	},
 	{
 		name: "Mail Me",
 		link: "mailto:ashishlotake@duck.com",
-		button: "primary"
+		button: "herobtninv",
+		icon: "mdi:arrow-top-right"
 	},
 	{
 		name: "twitter",
@@ -48,11 +51,9 @@ const social = [
 	</h2>
 
 	<div class="flex mt-5">
-		<button
-			id="modal2-trigger"
-			class="border rounded-lg bg-gray-200 hover:bg-black hover:text-white p-3"
-			>Get in Touch</button
-		>
+		<Button style="outline" id="modal2-trigger" class="sm:w-40">
+			Get in Touch
+		</Button>
 		<Modal triggerId="modal2-trigger" title=" ">
 			<div class="gap-y-3 w-full flex flex-col justify-center items-center">
 				<div class="text-xl font-semibold">Hey! let's connect</div>
@@ -61,14 +62,16 @@ const social = [
 						social.slice(0, 2).map((item) => (
 							<button class="" onclick="closeModal()">
 								<Link
-									aria_label=""
+									aria_label={item.name}
 									size="sm"
 									style={item.button}
 									rel="noopener"
 									href={item.link}
-									class="flex items-center justify-center rounded-lg"
+									class="sm:w-40"
 									target="_blank"
 								>
+									<Icon class=" h-5" name={item.icon} />
+
 									{item.name}
 								</Link>
 							</button>
@@ -83,10 +86,8 @@ const social = [
 								<Link
 									aria_label=""
 									size="sm"
-									style="outline"
 									rel="noopener"
 									href={item.link}
-									class="flex items-center justify-center rounded-lg"
 									target="_blank"
 								>
 									<Icon class=" h-6" name={item.icon} />

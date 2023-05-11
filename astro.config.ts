@@ -43,7 +43,8 @@ export default defineConfig({
 					"@component/Button/Button.astro": [["default", "Button"]],
 					"@component/Container/Container.astro": [["default", "Container"]],
 					"astro-embed": ["Vimeo", "YouTube"],
-					"@astrojs/image/components": ["Picture"]
+					"@astrojs/image/components": ["Picture"],
+					"@component/Link/Link.astro": [["default", "Link"]]
 				}
 			]
 		}),

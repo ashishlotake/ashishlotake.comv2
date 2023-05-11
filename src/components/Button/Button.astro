@@ -1,41 +1,47 @@
 ---
 interface Props {
-  size?: "md" | "lg" | "sm";
-  block?: boolean;
-  style?: "outline" | "primary" | "inverted";
-  class?: string;
-  [x: string]: any;
+	size?: "md" | "lg" | "sm"
+	block?: boolean
+	style?: "outline" | "primary" | "inverted"
+	class?: string
+	[x: string]: any
 }
 
 const {
-  size = "md",
-  style = "primary",
-  block,
-  class: className,
-  ...rest
-} = Astro.props;
+	size = "md",
+	style = "primary",
+	block,
+	class: className,
+	...rest
+} = Astro.props
 
 const sizes = {
-  sm: "px-3 md:px-5 md:py-2",
-  md: "px-5 py-2.5",
-  lg: "px-6 py-3",
-};
+	sm: "px-3 md:px-5 md:py-2",
+	md: "px-5 py-2.5",
+	lg: "px-6 py-3"
+}
 
 const styles = {
-  outline: "border-2 border-black hover:bg-black text-black hover:text-white",
-  primary:
-    "bg-black text-white hover:bg-slate-900  border-2 border-transparent",
-};
+	outline: "bg-white border  hover:bg-black text-black hover:text-white ",
+	primary: "bg-black text-white hover:bg-gray-800  border-2 border-transparent",
+	muted: "bg-gray-100 hover:bg-gray-200   border-2 border-transparent",
+	modal:
+		"p-2 border-2 border-black bg-black md:bg-gray-200 text-white md:text-black md:hover:bg-black md:hover:text-white",
+	herobtn:
+		" justify-center p-3  flex items-center gap-1 sm:gap-2 font-semibold text-[0.91rem]   bg-[#0002] transition-colors rounded-lg md:hover:bg-black md:hover:text-gray-200",
+	herobtninv:
+		" justify-center p-3  flex items-center gap-1 sm:gap-2 font-semibold text-[0.91rem] md:hover:text-black md:hover:bg-[#0002] transition-colors rounded-lg bg-black text-gray-200"
+}
 ---
 
 <button
-  {...rest}
-  class:list={[
-    "rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
-    block && "w-full",
-    sizes[size],
-    styles[style],
-    className,
-  ]}
-  ><slot />
+	{...rest}
+	class:list={[
+		"rounded-lg text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
+		block && "w-full",
+		sizes[size],
+		styles[style],
+		className
+	]}
+	><slot />
 </button>
