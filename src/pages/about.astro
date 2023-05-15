@@ -101,7 +101,7 @@ const selectBlog = [
 					>
 						Machine Learning Engineer @ newcompanym
 					</p> -->
-					<p class="tracking-tight text-slate-500">
+					<p class="tracking-tight text-gray-800">
 						I love exploring the frontiers of data science, finding patterns in
 						chaos, and translating insights into solutions. Whether I'm building
 						predictive models, developing natural language processing
@@ -117,7 +117,9 @@ const selectBlog = [
 		<div class="md:grid grid-cols-4 mt-10">
 			<!-- about -->
 			<div class="text-gray-500 text-[16px] mb-6 md:pb-0">
-				<span class="border-b md:border-0 border-dashed border-neutral-500">
+				<span
+					class="highlight_2 border-b md:border-0 border-dashed border-neutral-500"
+				>
 					About</span
 				>
 			</div>
@@ -126,7 +128,7 @@ const selectBlog = [
 					about.map((item) => (
 						<div class="mb-6">
 							<p class="font-medium text-neutral-600">{item.name}</p>
-							<p class=" tracking-tight text-slate-500">{item.content}</p>
+							<p class=" tracking-tight text-gray-800">{item.content}</p>
 						</div>
 					))
 				}
@@ -175,7 +177,7 @@ const selectBlog = [
 									{item.name}
 									<Icon class="mt-[4px] h-4" name="mdi:arrow-top-right-thin" />
 								</a>
-								<p class="leading-tight tracking-tight text-slate-500 line-clamp-2">
+								<p class="leading-tight tracking-tight text-gray-800 line-clamp-2">
 									{item.content}
 								</p>
 							</div>
@@ -207,7 +209,7 @@ const selectBlog = [
 									{item.name}
 									<Icon class="mt-[4px] h-4" name="mdi:arrow-top-right-thin" />
 								</a>
-								<p class="leading-tight tracking-tight text-slate-500 line-clamp-2">
+								<p class="leading-tight tracking-tight text-gray-800 line-clamp-2">
 									{item.content}
 								</p>
 							</div>
@@ -229,7 +231,6 @@ const selectBlog = [
 			<Logos />
 		</div>
 
-		<Timeline />
 		<Cta />
 	</Container>
 	<!-- </div> -->
